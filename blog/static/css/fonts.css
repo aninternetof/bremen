@@ -1,0 +1,59 @@
+/* Fonts */
+@font-face {
+  font-family: 'DINPro';
+  src: url("../fonts/din/DINPro-Light.eot#"), url("../fonts/din/DINPro-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-Light.woff") format("woff"), url("../fonts/din/DINPro-Light.ttf") format("truetype"), url("../fonts/din/DINPro-Light.oft") format("opentype"), url("../fonts/din/DINPro-Light.svg") format("svg");
+  font-weight: 100;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DINPro';
+  src: url("../fonts/din/DINPro-LightItalic.eot#"), url("../fonts/din/DINPro-LightItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-LightItalic.woff") format("woff"), url("../fonts/din/DINPro-LightItalic.ttf") format("truetype"), url("../fonts/din/DINPro-LightItalic.oft") format("opentype"), url("../fonts/din/DINPro-LightItalic.svg") format("svg");
+  font-weight: 100;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DINPro';
+  src: url("../fonts/din/DINPro.eot#"), url("../fonts/din/DINPro.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro.woff") format("woff"), url("../fonts/din/DINPro.ttf") format("truetype"), url("../fonts/din/DINPro.oft") format("opentype"), url("../fonts/din/DINPro.svg") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DINPro';
+  src: url("../fonts/din/DINPro-Italic.eot#"), url("../fonts/din/DINPro-Italic.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-Italic.woff") format("woff"), url("../fonts/din/DINPro-Italic.ttf") format("truetype"), url("../fonts/din/DINPro-Italic.oft") format("opentype"), url("../fonts/din/DINPro-Italic.svg") format("svg");
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DINPro';
+  src: url("../fonts/din/DINPro-Medium.eot#"), url("../fonts/din/DINPro-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-Medium.woff") format("woff"), url("../fonts/din/DINPro-Medium.ttf") format("truetype"), url("../fonts/din/DINPro-Medium.oft") format("opentype"), url("../fonts/din/DINPro-Medium.svg") format("svg");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DINPro';
+  src: url("../fonts/din/DINPro-MediumItalic.eot#"), url("../fonts/din/DINPro-MediumItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-MediumItalic.woff") format("woff"), url("../fonts/din/DINPro-MediumItalic.ttf") format("truetype"), url("../fonts/din/DINPro-MediumItalic.oft") format("opentype"), url("../fonts/din/DINPro-MediumItalic.svg") format("svg");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'DINPro';
+  src: url("../fonts/din/DINPro-Bold.eot#"), url("../fonts/din/DINPro-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-Bold.woff") format("woff"), url("../fonts/din/DINPro-Bold.ttf") format("truetype"), url("../fonts/din/DINPro-Bold.oft") format("opentype"), url("../fonts/din/DINPro-Bold.svg") format("svg");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DINPro';
+  src: url("../fonts/din/DINPro-BoldItalic.eot#"), url("../fonts/din/DINPro-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-BoldItalic.woff") format("woff"), url("../fonts/din/DINPro-BoldItalic.ttf") format("truetype"), url("../fonts/din/DINPro-BoldItalic.oft") format("opentype"), url("../fonts/din/DINPro-BoldItalic.svg") format("svg");
+  font-weight: 700;
+  font-style: italic; }
+
+
+@font-face {
+	font-family:"Grandesign Neue Serif";
+	src:url("../fonts/Grandesign_Neue_Serif/Grandesign_Neue_Serif.eot?") format("eot"),
+			url("../fonts/Grandesign_Neue_Serif/Grandesign_Neue_Serif.woff") format("woff"),
+			url("../fonts/Grandesign_Neue_Serif/Grandesign_Neue_Serif.ttf") format("truetype"),
+			url("../fonts/Grandesign_Neue_Serif/Grandesign_Neue_Serif.svg#GrandesignNeueSerif") format("svg");
+		font-weight:normal;
+		font-style:normal;
+	}

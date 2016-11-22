@@ -1,0 +1,114 @@
+body{
+	color: rgb(55,55,55);
+	font-size: 20px;
+}
+
+.post-title{
+	font-size: 2.25em;
+	font-family: 'DINPro', sans-serif;
+	font-weight: 500;
+	letter-spacing: 1.2px;
+	margin-bottom: 1em;
+}
+
+h2{
+	font-size: 1.5em;
+	font-family: 'DINPro', sans-serif;
+	font-weight: 500;
+	line-height: 1.5em;
+	margin-bottom: 1em;
+	margin-top: 0;
+}
+
+p{
+	font-size: 1.0em;
+	line-height: 1.5em;
+	font-family: 'Grandesign Neue Serif';
+	padding-bottom: 1em;
+}
+
+code{
+	border: 1px solid #c9d2d9;
+	background-color: #fafafa;
+	border-radius: 3px;
+	padding: 0.15rem 0.5rem;
+	white-space: nowrap;
+	color: #373737;
+}
+
+.header{
+	margin: 2em 3em;
+}
+
+.name{
+	font-size: 1.0em;
+	font-family: 'DINPro', sans-serif;
+	font-weight: 500;
+	margin-bottom: 0;
+}
+
+.job{
+	font-size: 0.9em;
+	font-family: 'DINPro', sans-serif;
+	font-weight: 300;
+	margin-top: 0;
+	margin-bottom: 0.2em;
+}
+
+.gist{
+	margin-bottom: 4rem !important;
+}
+
+.date{
+	color: rgb(135,135,135);
+	font-size: 1.0em;
+	font-family: 'DINPro', sans-serif;
+	font-weight: 300;
+	letter-spacing: 0.8px;
+}
+
+.col-centered{
+	max-width: 40em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+strong{
+	font-weight: bold;
+}
+
+a {
+	color: rgb(37,174,75);
+	text-decoration: none;
+}
+
+.portrait{
+	height: 5em;
+	margin-right: 1em;
+}
+
+.flex-wrapper{
+	display:flex;
+	align-items: center;
+}
+
+.info{
+	margin-top: 1em;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-right{
+	float: right;
+}
+
+.nav-link {
+	color: rgb(200,200,200);
+	font-size: 2.0em;
+}
+
+.nav-link i {
+	margin-top: 0.7em;
+}
