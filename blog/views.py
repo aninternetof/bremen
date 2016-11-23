@@ -21,7 +21,6 @@ def post_new(request):
             post = form.save(commit=False)
             post.slug = slugify(post.title)
             post.author = request.user
-            post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', slug=post.slug)
     else:
@@ -42,3 +41,20 @@ def post_edit(request, slug):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+@login_required
+def post_draft_list(request):
+    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    return render(request, 'blog/post_draft_list.html', {'posts': posts})
+
+@login_required
+def post_publish(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    post.publish()
+    return redirect('post_detail', slug=slug)
+
+@login_required
+def post_remove(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    post.delete()
+    return redirect('post_list')
