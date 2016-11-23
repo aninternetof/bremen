@@ -20,5 +20,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', django.contrib.auth.views.login, name='login'),
-	url(r'', include('blog.urls'))
+    url(r'^login/$', django.contrib.auth.views.login, name='login_shortcut'),
+    url(r'^accounts/logout/$', django.contrib.auth.views.logout, name='logout', kwargs={'next_page': '/'}),
+    url(r'', include('blog.urls'))
 ]
