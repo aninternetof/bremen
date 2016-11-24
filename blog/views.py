@@ -37,18 +37,22 @@ def post_new(request):
 @login_required
 def post_edit(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            form.save_m2m()
-            return redirect('post_detail', slug=post.slug)
+    if request.user == post.author:
+        print("Match")
+        if request.method == "POST":
+            form = PostForm(request.POST, instance=post)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.user
+                post.published_date = timezone.now()
+                post.save()
+                form.save_m2m()
+                return redirect('post_detail', slug=post.slug)
+        else:
+            form = PostForm(instance=post)
+        return render(request, 'blog/post_edit.html', {'form': form})
     else:
-        form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+        return redirect('post_detail', slug=post.slug)
 
 @login_required
 def post_draft_list(request):
@@ -64,5 +68,8 @@ def post_publish(request, slug):
 @login_required
 def post_remove(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    post.delete()
-    return redirect('post_list')
+    if request.user == post.author:
+        post.delete()
+        return redirect('post_list')
+    else:
+        return redirect('post_detail', slug=post.slug)
