@@ -20,6 +20,6 @@
             <a href="{% url 'tag_detail' slug=tag.slug %}">{{ tag }}</a>
           {% endfor %}
         </p>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <div>{{ post.content |safe}}</div>
     </div>
 {% endblock %}

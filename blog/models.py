@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 from taggit.managers import TaggableManager
+from froala_editor.fields import FroalaField
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
@@ -11,6 +12,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     tags = TaggableManager()
+    content = FroalaField()
 
     def save(self):
         super(Post, self).save()
