@@ -12,7 +12,7 @@ from taggit.models import Tag
 import random
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     tagline = random.choice(Tagline.objects.all())
     return render(request, 'blog/post_list.html', {'posts': posts, 'tagline': tagline})
 
