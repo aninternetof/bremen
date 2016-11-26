@@ -15,15 +15,11 @@
     <body>
 
       {% if user.is_authenticated %}
-      <div class="row user-bar">
-        <div class="col-lg-12">
-          <p>
-            {{ user.username }}<small> (<a href="{% url 'logout' %}">log out</a>) </small>
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-          </p>
+        <div class="col-lg-12 user-bar">
+          {{ user.username }}<small> (<a href="{% url 'logout' %}">log out</a>) </small>
+          <a href="{% url 'post_new' %}" class="top-menu"><i class="fa fa-plus"></i></a>
+          <a href="{% url 'post_draft_list' %}" class="top-menu"><i class="fa fa-list-ul"></i></a>
         </div>
-      </div>
       {% endif %}
 
       <div class="row header">
@@ -40,12 +36,14 @@
         </div>
       </div>
 
-      <div class="container">
-        <div class="col-centered">
-          {% block content %}
-          {% endblock %}
-        </div>
+
+    <div class="container">
+
+      <div class="col-centered">
+        {% block content %}
+        {% endblock %}
       </div>
+    </div>
 
     </body>
 </html>
