@@ -13,18 +13,27 @@ import random
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    tagline = random.choice(Tagline.objects.all())
+    if Tagline.objects.all():
+        tagline = random.choice(Tagline.objects.all())
+    else:
+        tagline = ""
     return render(request, 'blog/post_list.html', {'posts': posts, 'tagline': tagline})
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    tagline = random.choice(Tagline.objects.all())
+    if Tagline.objects.all():
+        tagline = random.choice(Tagline.objects.all())
+    else:
+        tagline = ""
     return render(request, 'blog/post_detail.html', {'post': post, 'tagline': tagline})
 
 def tag_detail(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
     posts = Post.objects.filter(tags__name__in=[tag]).distinct()
-    tagline = random.choice(Tagline.objects.all())
+    if Tagline.objects.all():
+        tagline = random.choice(Tagline.objects.all())
+    else:
+        tagline = ""
     return render(request, 'blog/tag_detail.html', {'tag': tag, 'posts': posts, 'tagline': tagline})
 
 @login_required
@@ -40,7 +49,10 @@ def post_new(request):
             return redirect('post_detail', slug=post.slug)
     else:
         form = PostForm()
-    tagline = random.choice(Tagline.objects.all())
+    if Tagline.objects.all():
+        tagline = random.choice(Tagline.objects.all())
+    else:
+        tagline = ""
     return render(request, 'blog/post_edit.html', {'form': form, 'tagline': tagline})
 
 @login_required
@@ -58,7 +70,10 @@ def post_edit(request, slug):
                 return redirect('post_detail', slug=post.slug)
         else:
             form = PostForm(instance=post)
-        tagline = random.choice(Tagline.objects.all())
+        if Tagline.objects.all():
+            tagline = random.choice(Tagline.objects.all())
+        else:
+            tagline = ""
         return render(request, 'blog/post_edit.html', {'form': form, 'tagline': tagline})
     else:
         return redirect('post_detail', slug=post.slug)
@@ -66,7 +81,10 @@ def post_edit(request, slug):
 @login_required
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
-    tagline = random.choice(Tagline.objects.all())
+    if Tagline.objects.all():
+        tagline = random.choice(Tagline.objects.all())
+    else:
+        tagline = ""
     return render(request, 'blog/post_draft_list.html', {'posts': posts, 'tagline': tagline})
 
 @login_required
@@ -99,5 +117,8 @@ def user_new(request):
     else:
         user_form = UserCreationForm()
         contributor_form = ContributorForm()
-    tagline = random.choice(Tagline.objects.all())
+    if Tagline.objects.all():
+        tagline = random.choice(Tagline.objects.all())
+    else:
+        tagline = ""
     return render(request, 'blog/user_edit.html', {'user_form': user_form, 'contributor_form': contributor_form, 'tagline': tagline})
