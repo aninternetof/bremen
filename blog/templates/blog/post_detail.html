@@ -14,7 +14,7 @@
   <a class="btn btn-default" href="{% url 'post_remove' slug=post.slug %}"><span class="glyphicon glyphicon-remove"></span></a>
   {% endif %}
   <div class="post-title">{{ post.title }}</div>
-  {% if post.author != "aninterntof"%}
+  {% if post.author.username != "aninternetof"%}
   <div> Guest post by <a href="{{post.author.contributor.homepage}}">{{post.author}}</a> </div>
   {% endif %}
   <p>{{ post.text|safe }}</p>
