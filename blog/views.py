@@ -13,7 +13,7 @@ import random
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    if Tagline.objects.all():
+    if Tagline.objects.all().exists():
         tagline = random.choice(Tagline.objects.all())
     else:
         tagline = ""
@@ -21,7 +21,7 @@ def post_list(request):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    if Tagline.objects.all():
+    if Tagline.objects.all().exists():
         tagline = random.choice(Tagline.objects.all())
     else:
         tagline = ""
@@ -30,7 +30,7 @@ def post_detail(request, slug):
 def tag_detail(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
     posts = Post.objects.filter(tags__name__in=[tag]).distinct()
-    if Tagline.objects.all():
+    if Tagline.objects.all().exists():
         tagline = random.choice(Tagline.objects.all())
     else:
         tagline = ""
@@ -49,7 +49,7 @@ def post_new(request):
             return redirect('post_detail', slug=post.slug)
     else:
         form = PostForm()
-    if Tagline.objects.all():
+    if Tagline.objects.all().exists():
         tagline = random.choice(Tagline.objects.all())
     else:
         tagline = ""
@@ -70,7 +70,7 @@ def post_edit(request, slug):
                 return redirect('post_detail', slug=post.slug)
         else:
             form = PostForm(instance=post)
-        if Tagline.objects.all():
+        if Tagline.objects.all().exists():
             tagline = random.choice(Tagline.objects.all())
         else:
             tagline = ""
@@ -81,7 +81,7 @@ def post_edit(request, slug):
 @login_required
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
-    if Tagline.objects.all():
+    if Tagline.objects.all().exists():
         tagline = random.choice(Tagline.objects.all())
     else:
         tagline = ""
@@ -117,7 +117,7 @@ def user_new(request):
     else:
         user_form = UserCreationForm()
         contributor_form = ContributorForm()
-    if Tagline.objects.all():
+    if Tagline.objects.all().exists():
         tagline = random.choice(Tagline.objects.all())
     else:
         tagline = ""
