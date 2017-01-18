@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.template.defaultfilters import slugify
 from taggit.managers import TaggableManager
 from django.contrib.auth.models import User
+from froala_editor.fields import FroalaField
 
 class Contributor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -17,6 +18,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     tags = TaggableManager()
+    content = FroalaField()
 
     def save(self):
         super(Post, self).save()

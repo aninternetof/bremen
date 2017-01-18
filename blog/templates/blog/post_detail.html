@@ -19,7 +19,7 @@
   {% if post.author.username != "aninternetof"%}
   <div class='guest-author'> Guest post by <a href="{{post.author.contributor.homepage}}">{{post.author}}.</a></div>
   {% endif %}
-  {{ post.text|safe }}
+  {{ post.content|safe }}
   {% for tag in post.tags.all %}
     <div class="tag"><a href="{% url 'tag_detail' slug=tag.slug %}">{{ tag }}</a></div>
   {% endfor %}

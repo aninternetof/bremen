@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 	'blog',
     'taggit',
     'django_instagram',
+    'froala_editor',
 ]
 
 MIDDLEWARE_CLASSES = [
