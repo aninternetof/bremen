@@ -167,3 +167,8 @@ a {
 .nav-link i {
 	margin-top: 0.7em;
 }
+
+.instagrid-item {
+  height: 120px;
+  margin-bottom: 5px;
+}

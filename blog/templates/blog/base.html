@@ -37,13 +37,46 @@
       </div>
 
 
-    <div class="container">
+      {% load instagram_client %}
 
-      <div class="col-centered">
-        {% block content %}
-        {% endblock %}
-      </div>
-    </div>
+      {% instagram_user_recent_media mollyrose30 %}
+
+        <div class="col-md-9">
+          <div class="container">
+            <div class="col-centered">
+              Hello World
+              {% block content %}
+              {% endblock %}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="instagrid">
+            <div class="col-md-12">
+              {% for media in recent_media|slice:":3" %}
+                <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
+                  <img class="instagrid-item" src="{{ media.thumbnail_src }}"/>
+                </a>
+              {% endfor %}
+            </div>
+            <div class="col-md-12">
+              {% for media in recent_media|slice:"4:7" %}
+                <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
+                  <img class="instagrid-item" src="{{ media.thumbnail_src }}"/>
+                </a>
+              {% endfor %}
+            </div>
+            <div class="col-md-12">
+              {% for media in recent_media|slice:"8:11" %}
+                <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
+                  <img class="instagrid-item" src="{{ media.thumbnail_src }}"/>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+
 
     </body>
 </html>
