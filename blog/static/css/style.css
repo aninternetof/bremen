@@ -1,30 +1,42 @@
 body{
 	color: rgb(55,55,55);
-	font-size: 20px;
+  padding-top: 50px;
 }
 
-.container{
-  margin-bottom: 5em;
+.btn {
+  border-radius: 16px;
 }
+
+.jumbotron {
+  background: url(../img/BradyMollyMarried-406.jpg);
+  background-size: cover;
+}
+
+.title {
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.navbar-inverse {
+  background-color: #0F0F37;
+  border-color: #0F0F37;
+}
+
+#user-bar li > a{
+  color: #3c3c5b;
+}
+
+.im-centered { margin: auto; max-width: 300px;}
 
 .post-title{
 	font-size: 2.25em;
-	font-family: 'DINPro', sans-serif;
-	font-weight: 500;
-	letter-spacing: 1.2px;
 	margin-bottom: 1em;
-}
-
-.guest-author{
-	font-family: 'Grandesign Neue Serif';
-  margin-bottom: 0.5em;
 }
 
 .post-list-title{
 	font-size: 2.25em;
-	font-family: 'DINPro', sans-serif;
-	font-weight: 500;
-	letter-spacing: 1.2px;
 	margin-bottom: 0em;
 }
 
@@ -42,8 +54,6 @@ img{
 
 h2{
 	font-size: 1.5em;
-	font-family: 'DINPro', sans-serif;
-	font-weight: 500;
 	line-height: 1.5em;
 	margin-bottom: 1em;
 	margin-top: 0;
@@ -52,17 +62,7 @@ h2{
 p{
 	font-size: 1.0em;
 	line-height: 1.5em;
-	font-family: 'Grandesign Neue Serif';
 	padding-bottom: 1em;
-}
-
-code{
-	border: 1px solid #c9d2d9;
-	background-color: #fafafa;
-	border-radius: 3px;
-	padding: 0.15rem 0.5rem;
-	white-space: nowrap;
-	color: #373737;
 }
 
 .tag{
@@ -102,23 +102,10 @@ code{
 	color: rgb(55,55,55);
 }
 
-.job{
-	font-size: 0.9em;
-	font-family: 'DINPro', sans-serif;
-	font-weight: 300;
-	margin-top: 0;
-	margin-bottom: 0.2em;
-}
-
-.gist{
-	margin-bottom: 4rem !important;
-}
 
 .date{
 	color: rgb(135,135,135);
 	font-size: 1.0em;
-	font-family: 'DINPro', sans-serif;
-	font-weight: 300;
 	letter-spacing: 0.8px;
 }
 
@@ -130,25 +117,6 @@ code{
 
 strong{
 	font-weight: bold;
-}
-
-a {
-	color: rgb(37,174,75);
-	text-decoration: none;
-}
-
-.portrait{
-	height: 5em;
-	margin-right: 1em;
-}
-
-.flex-wrapper{
-	display:flex;
-	align-items: center;
-}
-
-.info{
-	margin-top: 1em;
 }
 
 .float-left{
@@ -169,6 +137,6 @@ a {
 }
 
 .instagrid-item {
-  height: 120px;
+  height: 100px;
   margin-bottom: 5px;
 }

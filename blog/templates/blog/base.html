@@ -3,7 +3,9 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>blog</title>
+        <title>My Little Corner of the World</title>
+        <meta name="description" content="My Little Corner of the World">
+        <meta name="author" content="Molly Hurlburt">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,64 +16,89 @@
     </head>
     <body>
 
-      {% if user.is_authenticated %}
-        <div class="col-lg-12 user-bar">
-          {{ user.username }}<small> (<a href="{% url 'logout' %}">log out</a>) </small>
-          <a href="{% url 'post_new' %}" class="top-menu"><i class="fa fa-plus"></i></a>
-          <a href="{% url 'post_draft_list' %}" class="top-menu"><i class="fa fa-list-ul"></i></a>
-        </div>
-      {% endif %}
-
-      <div class="row header">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 flex-wrapper">
-          <img class="portrait" src="{% static 'img/portrait.png' %}">
-          <div>
-            <div class="name"><a href="/">Namey McNameface</a></div>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
           </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <ul id="user-bar" class="nav navbar-nav navbar-right">
+              {% if user.is_authenticated %}
+              <li><a href="{% url 'logout' %}">log out</a></li>
+              <li><a href="{% url 'post_new' %}" class="top-menu"><i class="fa fa-plus"></i></a></li>
+              <li><a href="{% url 'post_draft_list' %}" class="top-menu"><i class="fa fa-list-ul"></i></a></li>
+              {% endif %}
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
+      </nav>
+
+      <div class="jumbotron">
+        <div class="title">My Little Corner of the World</div>
       </div>
 
+      <div class="container" style="padding-bottom: 60px;">
 
-      {% load instagram_client %}
-
-      {% instagram_user_recent_media mollyrose30 %}
-
-        <div class="col-md-9">
-          <div class="container">
-            <div class="col-centered">
-              Hello World
-              {% block content %}
-              {% endblock %}
+        <div class="im-centered">
+          <div class="row">
+            <div class="col-md-4">
+              <button type="button" class="btn btn-default">Blog Posts</button>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="instagrid">
-            <div class="col-md-12">
-              {% for media in recent_media|slice:":3" %}
-                <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
-                  <img class="instagrid-item" src="{{ media.thumbnail_src }}"/>
-                </a>
-              {% endfor %}
+            <div class="col-md-4">
+              <button type="button" class="btn btn-default">101 in 1001</button>
             </div>
-            <div class="col-md-12">
-              {% for media in recent_media|slice:"4:7" %}
-                <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
-                  <img class="instagrid-item" src="{{ media.thumbnail_src }}"/>
-                </a>
-              {% endfor %}
-            </div>
-            <div class="col-md-12">
-              {% for media in recent_media|slice:"8:11" %}
-                <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
-                  <img class="instagrid-item" src="{{ media.thumbnail_src }}"/>
-                </a>
-              {% endfor %}
+            <div class="col-md-4">
+              <button type="button" class="btn btn-default">About</button>
             </div>
           </div>
         </div>
 
+        {% load instagram_client %}
+        {% instagram_user_recent_media mollyrose30 %}
+        <div class="row">
+          <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+          </div>
+          <div class="col-md-4">
+            <div>
+              <div class="instagrid">
+                <div class="col-md-12">
+                  {% for media in recent_media|slice:":3" %}
+                    <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
+                      <img class="instagrid-item" src="{{ media.thumbnail_src }}"/>
+                    </a>
+                  {% endfor %}
+                </div>
+                <div class="col-md-12">
+                  {% for media in recent_media|slice:"4:7" %}
+                    <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
+                      <img class="instagrid-item" src="{{ media.thumbnail_src }}"/>
+                    </a>
+                  {% endfor %}
+                </div>
+                <div class="col-md-12">
+                  {% for media in recent_media|slice:"8:11" %}
+                    <a href="https://www.instagram.com/p/{{ media.code }}/" target="_blank" title="{{ media.caption }}">
+                      <img class="instagrid-item" src="{{ media.thumbnail_src }}"/>
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+      </div>
 
     </body>
 </html>
