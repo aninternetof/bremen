@@ -8,10 +8,6 @@
                 {{ post.published_date|date:"N j, Y" }}
             </div>
             <h2 class="post-list-title"><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
-            {% if post.author.username != "aninternetof"%}
-            <div class="guest-author">
-              Guest post by <a href="{{post.author.contributor.homepage}}">{{post.author}}.</a>
-            </div>
             {% endif %}
             {{ post.abstract|safe }}
         </div>
