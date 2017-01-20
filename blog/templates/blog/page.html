@@ -1,0 +1,12 @@
+<!doctype html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <div>
+      <a class="btn btn-default" href="{% url 'page_edit' slug=this_page.slug %}"><i class="fa fa-pencil"></i></a>
+      <a class="btn btn-default" href="{% url 'page_remove' slug=this_page.slug %}"><i class="fa fa-times"></i></a>
+    </div>
+    {% endif %}
+  {{ this_page.content|safe}}
+{% endblock %}

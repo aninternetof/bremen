@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Post
 from .models import Tagline
+from .models import Page
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 from .models import Contributor
@@ -20,3 +21,4 @@ admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Tagline)
+admin.site.register(Page)

@@ -9,6 +9,11 @@ class Contributor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     homepage = models.CharField(max_length=100)
 
+class Page(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=100, unique=True)
+    content = FroalaField()
+
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     slug = models.SlugField(max_length=100, unique=True)

@@ -28,8 +28,10 @@
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="{% url 'post_list' %}">Blog</a></li>
+              {% for page in pages %}
+                <li><a href="{% url 'page' slug=page.slug %}">{{ page.title }}</a></li>
+              {% endfor %}
             </ul>
             <ul id="user-bar" class="nav navbar-nav navbar-right">
               {% if user.is_authenticated %}
@@ -47,20 +49,6 @@
       </div>
 
       <div class="container" style="padding-bottom: 60px;">
-
-        <div class="im-centered">
-          <div class="row">
-            <div class="col-md-4">
-              <button type="button" class="btn btn-default">Blog Posts</button>
-            </div>
-            <div class="col-md-4">
-              <button type="button" class="btn btn-default">101 in 1001</button>
-            </div>
-            <div class="col-md-4">
-              <button type="button" class="btn btn-default">About</button>
-            </div>
-          </div>
-        </div>
 
         {% load instagram_client %}
         {% instagram_user_recent_media mollyrose30 %}
