@@ -19,7 +19,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    abstract = models.TextField()
+    abstract = FroalaField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     tags = TaggableManager()
