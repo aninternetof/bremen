@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.template.defaultfilters import slugify
 from taggit.managers import TaggableManager
 from django.contrib.auth.models import User
-from froala_editor.fields import FroalaField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Contributor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -12,18 +12,18 @@ class Contributor(models.Model):
 class Page(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=100, unique=True)
-    content = FroalaField()
+    content = RichTextUploadingField(config_name='skinny')
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     slug = models.SlugField(max_length=100, unique=True)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    abstract = FroalaField()
+    abstract = RichTextUploadingField(config_name='skinny')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     tags = TaggableManager()
-    content = FroalaField()
+    content = RichTextUploadingField(config_name='skinny')
 
     def save(self):
         super(Post, self).save()

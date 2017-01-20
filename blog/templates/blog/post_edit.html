@@ -2,7 +2,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     {{ form.media }}
-    <h1>Edit post</h1>
+    <h1 style="padding-bottom: 7em">Edit post</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
