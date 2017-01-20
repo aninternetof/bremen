@@ -15,5 +15,5 @@ urlpatterns = [
     url(r'^drafts/$', views.post_draft_list, name='post_draft_list'),
     url(r'^post/(?P<slug>[-\w]+)/publish/$', views.post_publish, name='post_publish'),
     url(r'^post/(?P<slug>[-\w]+)/remove/$', views.post_remove, name='post_remove'),
-    url(r'^page/(?P<slug>[-\w]+)/remove/$', views.post_remove, name='page_remove'),
+    url(r'^page/(?P<slug>[-\w]+)/remove/$', views.page_remove, name='page_remove'),
 ]
