@@ -86,7 +86,8 @@ def page_new(request):
             return redirect('page', slug=page.slug)
     else:
         form = PageForm()
-    return render(request, 'blog/page_edit.html', {'form': form})
+    pages = Page.objects.all()
+    return render(request, 'blog/page_edit.html', {'form': form, 'pages': pages})
 
 @login_required
 def page_edit(request, slug):
@@ -100,7 +101,8 @@ def page_edit(request, slug):
             return redirect('page', page.slug)
     else:
         form = PageForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+    pages = Page.objects.all()
+    return render(request, 'blog/page_edit.html', {'form': form, 'pages': pages})
 
 @login_required
 def post_draft_list(request):
